@@ -1,4 +1,4 @@
-package com.nabindhakal.sqlite.sqlite_crud
+package com.nabindhakal.sqlite.money_app
 
 import io.flutter.embedding.android.FlutterActivity
 

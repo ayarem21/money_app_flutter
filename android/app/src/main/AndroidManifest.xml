@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nabindhakal.sqlite.sqlite_crud">
+    package="com.nabindhakal.sqlite.money_app">
    <application
-        android:label="sqlite_crud"
+        android:label="money_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

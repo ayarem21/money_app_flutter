@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.nabindhakal.sqlite" "\0"
-            VALUE "FileDescription", "sqlite_crud" "\0"
+            VALUE "FileDescription", "money_app" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "sqlite_crud" "\0"
+            VALUE "InternalName", "money_app" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.nabindhakal.sqlite. All rights reserved." "\0"
-            VALUE "OriginalFilename", "sqlite_crud.exe" "\0"
-            VALUE "ProductName", "sqlite_crud" "\0"
+            VALUE "OriginalFilename", "money_app.exe" "\0"
+            VALUE "ProductName", "money_app" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
