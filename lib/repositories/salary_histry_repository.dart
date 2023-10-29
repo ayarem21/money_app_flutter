@@ -6,7 +6,7 @@ import '../services/database_helper.dart';
 class SalaryHistoryRepository {
   static Future<List<Map<String, dynamic>>> getSalaryHistoryList() async {
     final db = await DatabaseHelper.databaseConnection();
-    return db.query('salary_history', orderBy: "getting_salary_date DESC");
+    return db.query('salary_history', orderBy: "payday DESC");
   }
 
   static Future<List<Map<String, dynamic>>> getItem(int id) async {

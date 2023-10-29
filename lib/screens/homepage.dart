@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   final TextEditingController _salaryController = TextEditingController();
-  final TextEditingController _gettingSalaryDateController =
+  final TextEditingController _paydayController =
   TextEditingController();
 
   void showMyForm(int? id) async {
@@ -39,11 +39,11 @@ class _HomePageState extends State<HomePage> {
       final existingData =
       salaryHistories.firstWhere((element) => element['id'] == id);
       _salaryController.text = existingData['salary'].toString();
-      _gettingSalaryDateController.text =
-          existingData['getting_salary_date'].toString();
+      _paydayController.text =
+          existingData['payday'].toString();
     } else {
       _salaryController.text = "";
-      _gettingSalaryDateController.text = "";
+      _paydayController.text = "";
     }
 
     showModalBottomSheet(
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       TextFormField(
                           validator: formValidator,
-                          controller: _gettingSalaryDateController,
+                          controller: _paydayController,
                           decoration: const InputDecoration(
                               hintText: 'Getting salary date'),
                           onTap: () async {
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                               DateFormat('yyyy-MM-dd').format(pickedDate);
 
                               setState(() {
-                                _gettingSalaryDateController.text =
+                                _paydayController.text =
                                     formattedDate;
                               });
                             }
@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                                 // Clear the text fields
                                 setState(() {
                                   _salaryController.text = '';
-                                  _gettingSalaryDateController.text = '';
+                                  _paydayController.text = '';
                                 });
 
                                 Navigator.pop(context);
@@ -152,19 +152,19 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> addItem() async {
     double salary = double.parse(_salaryController.text);
-    String gettingSalaryDate = _gettingSalaryDateController.text;
+    String payday = _paydayController.text;
     await SalaryHistoryService.createSalaryHistoryItem(
-        salary, gettingSalaryDate);
+        salary, payday);
     _refreshData();
   }
 
   // Update an existing data
   Future<void> updateItem(int id) async {
     double salary = double.parse(_salaryController.text);
-    String gettingSalaryDate = _gettingSalaryDateController.text;
+    String payday = _paydayController.text;
 
     await SalaryHistoryService.updateSalaryHistoryItem(
-        id, salary, gettingSalaryDate);
+        id, salary, payday);
     _refreshData();
   }
 
@@ -203,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     DataColumn(
                       label: Text(
-                        'Getting Date',
+                        'Payday',
                         style: TextStyle(fontStyle: FontStyle.italic),
 
                       ),
@@ -242,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                       DataCell(
                           Text(salaryHistories[index]["salary"].toString())),
                       DataCell(Text(salaryHistories[index]
-                      ["getting_salary_date"]
+                      ["payday"]
                           .toString())),
                       DataCell(Text(
                           salaryHistories[index]["static_tax"].toString())),
@@ -257,7 +257,7 @@ class _HomePageState extends State<HomePage> {
 
         // child: ListTile(
         //     title: Text(myData[index]['salary'].toString()),
-        //     subtitle: Text(myData[index]['getting_salary_date'].toString()),
+        //     subtitle: Text(myData[index]['payday'].toString()),
         //     trailing: SizedBox(
         //       width: 100,
         //       child: Row(

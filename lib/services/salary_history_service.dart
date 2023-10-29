@@ -2,13 +2,13 @@ import 'package:money_app/repositories/salary_histry_repository.dart';
 
 class SalaryHistoryService {
   static Future<int> createSalaryHistoryItem(
-      double salary, String gettingSalaryDate) async {
+      double salary, String payday) async {
     double staticTax = 1500.0;
     double fivePercentTax = salary * 0.05;
 
     final item = {
       'salary': salary,
-      'getting_salary_date': gettingSalaryDate,
+      'payday': payday,
       'static_tax': staticTax,
       'five_percent_tax': fivePercentTax
     };
@@ -25,12 +25,12 @@ class SalaryHistoryService {
   }
 
   static Future<int> updateSalaryHistoryItem(
-      int id, double salary, String gettingSalaryDate) async {
+      int id, double salary, String payday) async {
     double staticTax = 1500.0;
     double fivePercentTax = salary * 0.05;
     final item = {
       'salary': salary,
-      'getting_salary_date': gettingSalaryDate,
+      'payday': payday,
       'static_tax': staticTax,
       'five_percent_tax': fivePercentTax,
     };
